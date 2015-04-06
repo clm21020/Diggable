@@ -16,13 +16,14 @@ column name | data type | details
 id          | integer   | not null, primary key
 seller_id   | integer   | not null, foreign key (references users) (i)
 price       | integer   | not null (i)
-long_lat    | string    | not null (i)
+latitude    | string    | not null (i)
+longitude   | string    | not null (i)
 type        | string    | not null (i)
-street_1    | string    | not null
+street_1    | string    | not null (i)
 street_2    | string    |
-city        | string    | not null
-state       | string    | not null
-zip_code    | string    | not null
+city        | string    | not null (i)
+state       | string    | not null (i)
+zip_code    | string    | not null (i)
 description | text      |
 
 ## stars

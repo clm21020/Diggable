@@ -1,4 +1,4 @@
-# View Wireframes
+<!-- # View Wireframes
 
 ## New Session
 ![new-session]
@@ -23,4 +23,4 @@
 [blog-show]: ./wireframes/blog_show.png
 [post-show]: ./wireframes/post_show.png
 [post-form]: ./wireframes/post_form.png
-[search-results]: ./wireframes/search_results.png
+[search-results]: ./wireframes/search_results.png -->

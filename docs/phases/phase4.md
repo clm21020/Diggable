@@ -1,4 +1,4 @@
-# Phase 4: User Feeds
+# Phase 4: Adding Google Maps & Search by Location
 
 ## Rails
 ### Models
@@ -7,14 +7,16 @@
 Api::PostsController (feed)
 
 ### Views
-posts/feed.json.jbuilder
 
 ## Backbone
 ### Models
 
 ### Collections
+* Listings
 
 ### Views
-* FeedShow (composite view, contains PostsIndex subview)
+* Navigation (add the search bar)
+* MapShow
 
 ## Gems/Libraries
+Google Maps API

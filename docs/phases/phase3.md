@@ -1,7 +1,8 @@
-# Phase 3: Editing and Displaying Posts
+# Phase 3: Adding Pictures to Listings
 
 ## Rails
 ### Models
+* Images
 
 ### Controllers
 
@@ -13,9 +14,9 @@
 ### Collections
 
 ### Views
-* PostForm
+* ListingForm
+* ListingShow (include thumbnails to click through pictures)
+* ListingsIndex (show a single picture if listing has any)
 
 ## Gems/Libraries
 * Filepicker
-* Markdown-js
-* Bootstrap Markdown
