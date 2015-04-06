@@ -1,35 +1,38 @@
-# Flux-capacitr
+# Diggable
 
-[Heroku link][heroku]
+<!-- [Heroku link][heroku] -->
 
-[heroku]: http://flux-capacitr.herokuapp.com
+<!-- [heroku]: http://flux-capacitr.herokuapp.com -->
 
 ## Minimum Viable Product
-Flux-capacitr is a clone of Tumblr built on Rails and Backbone. Users can:
+Diggable is a clone of Zillow built on Rails and Backbone. Users can:
 
 <!-- This is a Markdown checklist. Use it to keep track of your progress! -->
 
-- [x] Create accounts
-- [x] Create sessions (log in)
-- [x] Create blogs
-- [x] Create blog posts
-- [ ] View blogs and posts
-- [ ] Subscribe to blogs
-- [ ] View a feed of subscribed blogs
-- [ ] Tag blog posts
-- [ ] Search for blogs by title
-- [ ] Search for posts by tag
+- [ ] Create accounts
+- [ ] Create sessions (log in)
+- [ ] Create listings for homes to sell/rent
+- [ ] View listings for homes to buy/rent
+- [ ] Search for listings by location (address/zip/city)
+- [ ] See search results on a map
+- [ ] Save/star listings to view later
+- [ ] View saved/starred listings
+- [ ] Hide listings from search results
+- [ ] Narrow search results for listings by price
+- [ ] Narrow search results for listings by type
 
 ## Design Docs
-* [View Wireframes][views]
+<!-- * [View Wireframes][views] -->
 * [DB schema][schema]
 
-[views]: ./docs/views.md
+<!-- [views]: ./docs/views.md -->
+
+
 [schema]: ./docs/schema.md
 
 ## Implementation Timeline
 
-### Phase 1: User Authentication, Blog Creation (~1 day)
+<!-- ### Phase 1: User Authentication, Blog Creation (~1 day)
 I will implement user authentication in Rails based on the practices learned at
 App Academy. By the end of this phase, users will be able to create blogs using
 a simple text form in a Rails view. The most important part of this phase will
@@ -70,22 +73,19 @@ Backbone side, there will be a `SearchResults` composite view has `BlogsIndex`
 and `PostsIndex` subviews. These views will use plain old `blogs` and `posts`
 collections, but they will fetch from the new `search` routes.
 
-[Details][phase-five]
+[Details][phase-five] -->
 
 ### Bonus Features (TBD)
-- [ ] "Like" button and counter for posts
-- [ ] Custom blog urls
-- [ ] Pagination/infinite scroll
-- [ ] Activity history (e.g. likes, reblogs, taggings)
-- [ ] Post types (image posts, quote posts, etc)
-- [ ] Reblogging
+- [ ] Color-coded pins
+- [ ] The ability to save searches
 - [ ] Multiple sessions/session management
 - [ ] User avatars
-- [ ] Typeahead search bar
+- [ ] Pagination/infinite scroll
+- [ ] Notifications
 
-[phase-one]: ./docs/phases/phase1.md
+
+<!-- [phase-one]: ./docs/phases/phase1.md
 [phase-two]: ./docs/phases/phase2.md
 [phase-three]: ./docs/phases/phase3.md
 [phase-four]: ./docs/phases/phase4.md
-[phase-five]: ./docs/phases/phase5.md
-
+[phase-five]: ./docs/phases/phase5.md -->
