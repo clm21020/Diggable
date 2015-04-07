@@ -16,6 +16,7 @@ column name | data type | details
 id          | integer   | not null, primary key
 seller_id   | integer   | not null, foreign key (references users) (i)
 price       | integer   | not null (i)
+date        | datetime  | not null (i)
 latitude    | string    | not null (i)
 longitude   | string    | not null (i)
 type        | string    | not null (i)
