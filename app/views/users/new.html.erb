@@ -1,0 +1,25 @@
+<div class="new-user">
+  <h3>Welcome to Diggable</h3>
+
+  <div class="options">
+    <div class="sign-in-option">
+      Sign In
+    </div>
+
+    <div class="sign_up_option">
+      <strong>Sign Up</strong>
+    </div>
+  </div>
+
+  <form action="/users" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+    <input type="text" name="user[username]" placeholder="username"><br>
+
+    <input type="password" name="user[password]" placeholder="password"><br>
+
+    <input type="submit" value="Sign Up">
+  </form>
+
+  <div> Sign in as a Guest </div>
+</div>

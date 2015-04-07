@@ -7,6 +7,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <% if flash[:errors] %>
+    <div class="alert alert-warning alert-dismissible" role="alert">
+      <%= flash[:errors].join("<br>").html_safe %>
+    </div>
+  <% end %>
+
 
 <%= yield %>
 
