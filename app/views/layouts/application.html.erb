@@ -7,6 +7,10 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <% if signed_in? %>
+    <%= button_to "Sign out", session_url, method: :delete %>
+  <% end %>
+
   <% if flash[:errors] %>
     <div class="alert alert-warning alert-dismissible" role="alert">
       <%= flash[:errors].join("<br>").html_safe %>
