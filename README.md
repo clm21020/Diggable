@@ -7,8 +7,8 @@
 ## Minimum Viable Product
 Diggable is a clone of Zillow built on Rails and Backbone. Users can:
 
-- [ ] Create accounts
-- [ ] Create sessions (log in)
+- [x] Create accounts
+- [x] Create sessions (log in)
 - [ ] Create listings for homes to sell/rent
 - [ ] View listings for homes to buy/rent
 - [ ] Search for listings by location (address/zip/city)

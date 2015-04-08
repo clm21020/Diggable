@@ -16,16 +16,16 @@ column name | data type | details
 id          | integer   | not null, primary key
 seller_id   | integer   | not null, foreign key (references users) (i)
 price       | integer   | not null (i)
-date        | datetime  | not null (i)
+available_at| datetime  | not null (i)
 latitude    | string    | not null (i)
 longitude   | string    | not null (i)
 type        | string    | not null (i)
-street_1    | string    | not null (i)
+street_1    | string    | not null
 street_2    | string    |
-city        | string    | not null (i)
-state       | string    | not null (i)
-zip_code    | string    | not null (i)
-description | text      |
+city        | string    | not null
+state       | string    | not null
+zip_code    | string    | not null
+description | text      | not null
 
 ## stars
 column name | data type | details
