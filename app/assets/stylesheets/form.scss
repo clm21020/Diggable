@@ -1,0 +1,35 @@
+.form-header {
+  margin-bottom: 15px;
+  font-weight: normal;
+  font-size: 32px;
+}
+
+.form-nav {
+  color: black;
+  font-size: 20px;
+}
+
+.form-nav strong{
+  font-weight: normal;
+  color: blue;
+  padding-bottom: 17px;
+  border-bottom: 2px solid blue;
+}
+
+.form-nav:hover {
+  color: blue;
+  text-decoration: none;
+}
+
+hr.form {
+  margin: 15px 0px;
+}
+
+div.new-session, div.new-user{
+  box-shadow: 0px 0px 3px #333333;
+  width: 450px;
+  height: 400px;
+  padding: 20px;
+  margin: 100px auto;
+  background: white;
+}
