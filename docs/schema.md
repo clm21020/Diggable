@@ -14,7 +14,7 @@ session_token   | string    | not null, unique (i)
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-seller_id   | integer   | not null, foreign key (references users) (i)
+poster_id   | integer   | not null, foreign key (references users) (i)
 price       | integer   | not null (i)
 available_at| datetime  | not null (i)
 latitude    | string    | not null (i)
