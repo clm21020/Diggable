@@ -7,28 +7,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-    <ul class="nav nav-pills">
-      <li><a href="#">For Sale</a></li>
-      <li><a href="#">For Rent</a></li>
-
-      <% if signed_in? %>
-        <li><a href="#">Sign Out</a></li>
-      <% end %>
-    </ul>
-
-  <% if signed_in? %>
-    <li><%= button_to "Sign out", session_url, method: :delete %></li>
-  <% end %>
-
   <% if flash[:errors] %>
     <div class="alert alert-warning alert-dismissible" role="alert">
       <%= flash[:errors].join("<br>").html_safe %>
     </div>
   <% end %>
 
-  <div class="container">
-    <%= yield %>
-  </div>
+
+  <%= yield %>
 
 </body>
 </html>
