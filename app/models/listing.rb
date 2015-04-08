@@ -16,11 +16,14 @@
 #  available_at :datetime         not null
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  poster_id    :integer          not null
 #
 
 class Listing < ActiveRecord::Base
-  validates :price, :type, :street_1, :city, :state, :zip_code, :description,
-              :available_at, presence: true
+  # validates :price, :type, :street_1, :city, :state, :zip_code, :description,
+              # :available_at, :poster_id, presence: true
+
+  belongs_to :poster, class_name: "User"
 
   def address_string
     street = self.street_2 ? "#{self.street_1}, #{self.street_2}" : self.street_1
