@@ -9,10 +9,10 @@ Diggable is a clone of Zillow built on Rails and Backbone. Users can:
 
 - [x] Create accounts
 - [x] Create sessions (log in)
-- [ ] Create listings for homes to sell/rent
-- [ ] View listings for homes to buy/rent
+- [ ] View a list of listings for homes to buy/rent
 - [ ] Search for listings by location (address/zip/city)
 - [ ] See search results on a map
+- [ ] Create listings for homes to sell/rent
 - [ ] Save/star listings to view later
 - [ ] View saved/starred listings
 - [ ] Hide listings from search results
@@ -30,9 +30,8 @@ Diggable is a clone of Zillow built on Rails and Backbone. Users can:
 
 ## Implementation Timeline
 
-### Phase 1: User Authentication, Listing Creation (~1 day)
+### Phase 1: User Authentication(~1 day)
 I will implement user authentication in Rails based on the practices learned at App Academy.
-By the end of this phase, users will be able to create a listing using a simple form in a Rails view.
 
 [Details][phase-one]
 
@@ -43,7 +42,8 @@ By the end of this phase, users will be able to create and view listings, all in
 
 [Details][phase-two]
 
-### Phase 3: Adding Pictures to Listings (~1 day)
+### ~~Phase 3: Adding Pictures to Listings (~1 day)~~(After Phase 6)
+
 I plan to use Filepicker for file upload so users can add images to their listings. Then, I'll update my Backbone views to show them.
 
 By the end of this phase, the ListingsIndex view will include a single image for each listing, and the ListingShow view the will include thumbnails (using a jQuery plugin) so that users can click through pictures of that listing.
@@ -67,14 +67,18 @@ I'll also add the ability to "star" or "hide" a listing by adding clickable icon
 
 [Details][phase-five]
 
+### Phase 6: Creating and Showing a Single Listing (~ 1 day)
+I will add the ability for users to see a more detailed page for each listing by selecting one from the list of search results.
+I'll also allow users to create their own listings
+
 ### Bonus Features (TBD)
+- [ ] Color-coded pins
+- [ ] Pagination/infinite scroll
 - [ ] Allow users to update/delete listings that they created
 - [ ] Add a 'My Listings' tab to the nav bar
-- [ ] Color-coded pins
 - [ ] The ability to save searches
 - [ ] Multiple sessions/session management
 - [ ] User avatars
-- [ ] Pagination/infinite scroll
 - [ ] Notifications
 
 

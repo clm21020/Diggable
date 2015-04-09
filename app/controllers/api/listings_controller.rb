@@ -1,8 +1,8 @@
-module API
+module Api
   class ListingsController < ApiController
     def index
       @listings = Listing.search_results({})
-      render json: @boards
+      render json: @listings
     end
 
     def show
