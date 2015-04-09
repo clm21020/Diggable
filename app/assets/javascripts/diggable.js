@@ -4,7 +4,11 @@ window.Diggable = {
   Views: {},
   Routers: {},
   initialize: function() {
-    alert('Hello from Backbone!');
+    new Diggable.Routers.Router({
+      $rootEl: $("div.container")
+    });
+    
+    Backbone.history.start();
   }
 };
 
