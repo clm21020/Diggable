@@ -68,7 +68,8 @@ I'll also add the ability to "star" or "hide" a listing by adding clickable icon
 [Details][phase-five]
 
 ### Bonus Features (TBD)
-- [ ] Allow users to update listings they created
+- [ ] Allow users to update/delete listings that they created
+- [ ] Add a 'My Listings' tab to the nav bar
 - [ ] Color-coded pins
 - [ ] The ability to save searches
 - [ ] Multiple sessions/session management
