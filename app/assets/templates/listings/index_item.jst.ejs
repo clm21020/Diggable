@@ -14,4 +14,7 @@
 
 <div>
   Price: $<%= listing.escape('price') %>
+  <% if ( listing.get('category') === "rent" ) { %>
+      /mo
+  <% } %>
 </div>
