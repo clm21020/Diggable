@@ -2,21 +2,20 @@ Diggable.Routers.Router = Backbone.Router.extend({
   initialize: function(options){
     this.$rootEl = options.$rootEl;
     this.listings = new Diggable.Collections.Listings();
+    this.listings.fetch();
   },
 
   routes: {
     "": "listingsIndex",
-    "listings/new": "listingsNew",
-    "listings/:id": "listingsShow"
   },
 
   listingsIndex: function() {
-  },
-
-  listingsNew: function() {
-  },
-
-  listingsShow: function(id) {
+    var listings = this.listings;
+    this.listings.fetch();
+    var view = new Diggable.Views.ListingsIndex({
+      collection: this.listings
+    });
+    this._swapView(view);
   },
 
   _swapView: function(view) {

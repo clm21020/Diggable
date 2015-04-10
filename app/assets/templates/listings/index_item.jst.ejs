@@ -1,0 +1,17 @@
+<div>
+  <%= listing.escape('street_1') %>
+</div>
+
+<% if ( listing.get('street_2') !== null ) { %>
+  <div>
+    <%= listing.escape('street_2') %>
+  </div>
+<% } %>
+
+<div>
+  <%= listing.escape('city') %>, <%= listing.escape('state') %> <%= listing.escape('zip_code') %>
+</div>
+
+<div>
+  Price: $<%= listing.escape('price') %>
+</div>

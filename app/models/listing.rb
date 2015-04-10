@@ -20,7 +20,7 @@
 #
 
 class Listing < ActiveRecord::Base
-  validates :price, :type, :street_1, :city, :state, :zip_code, :description,
+  validates :price, :category, :street_1, :city, :state, :zip_code, :description,
               :available_at, :poster_id, presence: true
 
   belongs_to :poster, class_name: "User"
