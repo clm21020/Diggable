@@ -27,6 +27,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'newrelic_rpm'
 gem 'bootstrap-sass'
 gem 'backbone-on-rails'
+gem 'faker'
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
