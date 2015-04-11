@@ -1,20 +1,7 @@
-<div>
-  <%= listing.escape('street_1') %>
-</div>
+<a class="address" href="javascript:void(0)">
+  <%= listing.prettyAddress() %>
+</a>
 
-<% if ( listing.get('street_2') !== null ) { %>
-  <div>
-    <%= listing.escape('street_2') %>
-  </div>
-<% } %>
-
-<div>
-  <%= listing.escape('city') %>, <%= listing.escape('state') %> <%= listing.escape('zip_code') %>
-</div>
-
-<div>
-  Price: $<%= listing.escape('price') %>
-  <% if ( listing.get('category') === "rent" ) { %>
-      /mo
-  <% } %>
+<div class="price">
+  <%= listing.prettyPrice() %>
 </div>

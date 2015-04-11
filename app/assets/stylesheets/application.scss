@@ -18,8 +18,14 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
-html, body {
+html, body, .content > div {
+  height: 100%;
   width: 100%;
+}
+
+.content {
+  // adjust to compensate for the navbar's height
+  height: calc(100% - 40px);
 }
 
 .nav {

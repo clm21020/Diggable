@@ -1,0 +1,35 @@
+.listings {
+  box-shadow: 0px 0px 5px #333333;
+  width: 350px;
+  height: 100%;
+  background: white;
+  overflow: scroll;
+  float: right;
+}
+
+.listings-header {
+  font-weight: normal;
+  font-size: 28px;
+  padding: 10px 15px;
+  border-bottom: 1px solid rgb(204, 204, 204);
+}
+
+.listing-index-items > div{
+  padding: 10px;
+  border-bottom: 1px solid rgb(204, 204, 204);
+}
+
+.listing-index-item > .address {
+  font-weight: bold;
+  color: blue;
+}
+
+
+.listing-index-item > .address:hover {
+  color: DeepSkyBlue;
+  text-decoration: none;
+}
+
+.listing-index-item > .price {
+  font-size: 24px;
+}

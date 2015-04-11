@@ -40,9 +40,4 @@ class Listing < ActiveRecord::Base
 
     results
   end
-
-  def address_string
-    street = self.street_2 ? "#{self.street_1}, #{self.street_2}" : self.street_1
-    "#{street}, #{self.city}, #{self.state} #{self.zip_code}"
-  end
 end
