@@ -6,13 +6,12 @@ Diggable.Routers.Router = Backbone.Router.extend({
   },
 
   routes: {
-    "": "listingsIndex",
+    "": "search",
   },
 
-  listingsIndex: function() {
-    var listings = this.listings;
+  search: function() {
     this.listings.fetch();
-    var view = new Diggable.Views.ListingsIndex({
+    var view = new Diggable.Views.SearchShow({
       collection: this.listings
     });
     this._swapView(view);
