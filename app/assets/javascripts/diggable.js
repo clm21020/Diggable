@@ -5,9 +5,9 @@ window.Diggable = {
   Routers: {},
   initialize: function() {
     new Diggable.Routers.Router({
-      $rootEl: $("div.container")
+      $rootEl: $("div.content")
     });
-    
+
     Backbone.history.start();
   }
 };
