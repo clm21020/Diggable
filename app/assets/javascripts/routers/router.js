@@ -25,3 +25,13 @@ Diggable.Routers.Router = Backbone.Router.extend({
     this.$rootEl.html(view.render().$el);
   }
 });
+// 
+//
+// listingsIndex: function() {
+//   var listings = this.listings;
+//   this.listings.fetch();
+//   var view = new Diggable.Views.ListingsIndex({
+//     collection: this.listings
+//   });
+//   this._swapView(view);
+// },

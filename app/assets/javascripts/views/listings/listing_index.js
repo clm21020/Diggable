@@ -8,8 +8,6 @@ Diggable.Views.ListingsIndex = Backbone.CompositeView.extend({
 
   template: JST['listings/index'],
 
-  className: 'listings',
-
   render: function() {
     var content = this.template();
     this.$el.html(content);
@@ -24,7 +22,7 @@ Diggable.Views.ListingsIndex = Backbone.CompositeView.extend({
 
   removeListingIndexItemView: function(listing) {
     _(this.subviews('.listing-index-items')).each(function (subview) {
-      if (subview.model == listing) { //does this have to be == (vs ===)
+      if (subview.model === listing) {
         this.removeSubview(subview);
       }
     }.bind(this));
