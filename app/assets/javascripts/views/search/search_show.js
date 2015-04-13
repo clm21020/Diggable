@@ -1,6 +1,7 @@
 Diggable.Views.SearchShow = Backbone.CompositeView.extend({
   // Will contain listings, map, and possibly a search bar
   initialize: function(){
+    this.addMapView();
     this.addListingsIndexView();
   },
 
@@ -16,5 +17,10 @@ Diggable.Views.SearchShow = Backbone.CompositeView.extend({
   addListingsIndexView: function() {
     var subview = new Diggable.Views.ListingsIndex({collection: this.collection});
     this.addSubview('.listings', subview);
+  },
+
+  addMapView: function() {
+    var subview = new Diggable.Views.Map({collection: this.collection});
+    this.addSubview('.map', subview);
   }
 });
