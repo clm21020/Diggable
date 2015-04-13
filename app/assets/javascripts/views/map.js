@@ -26,11 +26,44 @@ Diggable.Views.Map = Backbone.View.extend({
     this._markers[listing.id] = new google.maps.Marker({
         position: { lat: listing.get('latitude'), lng: listing.get('longitude') },
         map: this._map,
-        title:"Hello World!"
+        title: (listing.id).toString()
     });
+
+    google.maps.event.addListener(this._markers[listing.id], "mouseover", function(event, marker){
+      this.showMarkerInfo(event, this._markers[listing.id]);
+    }.bind(this));
+
+    google.maps.event.addListener(this._markers[listing.id], "mouseout", function(){
+      this.hideMarkerInfo(event, this._markers[listing.id]);
+    }.bind(this));
+  },
+
+  infoWindowTemplate: JST["map/infoWindow"],
+
+  showMarkerInfo: function(event, marker) {
+    var content = this.infoWindowTemplate({
+      listing: this.collection.get(marker.title)
+    });
+
+    this._infoWindow = new google.maps.InfoWindow({
+      content: content
+    });
+
+    this._infoWindow.open(this._map, marker);
+  },
+
+  hideMarkerInfo: function() {
+    if (this._infoWindow) {
+      this._infoWindow.close();
+    }
   },
 
   removeMarker: function(listing) {
-    this._markers[listing.id].setMap(null);
+    // remove the listeners from the marker
+    // google.maps.event.clearInstanceListeners(this._markers[listing.id]);
+    // remove the marker from the map
+    // this._markers[listing.id].setMap(null);
+    // delete the marker
+    // this._markers[listing.id] = null;
   }
 });

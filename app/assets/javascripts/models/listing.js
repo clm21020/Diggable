@@ -12,6 +12,10 @@ Diggable.Models.Listing = Backbone.Model.extend({
     return address;
   },
 
+  shortAddress: function(len){
+    return this.prettyAddress().substr(0, len);
+  },
+
   commaPrice: function(price){
     var digits = price.split('');
 
