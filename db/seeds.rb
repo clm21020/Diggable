@@ -28,19 +28,45 @@ end
 
 # ---------Listings----------------------------------
 
-ADDRESSES = {
+RENT_ADDRESSES = {
   app_academy: {
     street_1: "1061 Market St",
     street_2: "#4",
     city: "San Francisco",
     state: "CA",
     zip_code: "94103",
+    description: "App Academy"
+  },
+  dropbox: {
+    street_1: "185 Berry Street",
+    city: "San Francisco",
+    state: "CA",
+    zip_code: "94107",
+    description: "Dropbox"
+  },
+  eventbrite: {
+    street_1: "155 5th St",
+    city: "San Francisco",
+    state: "CA",
+    zip_code: "94107",
+    description: "Eventbrite"
   },
   indiegogo: {
     street_1: "965 Mission St",
     city: "San Francisco",
     state: "CA",
     zip_code: "94103",
+    description: "Indiegogo"
+  },
+}
+
+BUY_ADDRESSES = {
+  newrelic: {
+    street_1: "188 Spear St",
+    city: "San Francisco",
+    state: "CA",
+    zip_code: "94105",
+    description: "New Relic"
   },
   salesforce: {
     street_1: "1 Market St",
@@ -48,6 +74,7 @@ ADDRESSES = {
     city: "San Francisco",
     state: "CA",
     zip_code: "94105",
+    description: "Salesforce.com"
   },
   square: {
     street_1: "1455 Market St",
@@ -55,6 +82,7 @@ ADDRESSES = {
     city: "San Francisco",
     state: "CA",
     zip_code: "94103",
+    description: "Square"
   },
   twitter: {
     street_1: "1355 Market St",
@@ -62,12 +90,14 @@ ADDRESSES = {
     city: "San Francisco",
     state: "CA",
     zip_code: "94103",
+    description: "Twitter"
   },
   yelp: {
     street_1: "140 New Montgomery St",
     city: "San Francisco",
     state: "CA",
     zip_code: "94105",
+    description: "Yelp"
   }
 }
 
@@ -86,30 +116,21 @@ ADDRESSES = {
 # Intel (santa clara)
 
 # to rent
-ADDRESSES.each do |key, val|
+RENT_ADDRESSES.each do |key, val|
   listing = Listing.create({
     price: (Faker::Number.number(1).to_i * 100),
     category: "rent",
-    description: "It's a nice place",
     poster_id: Faker::Number.between(1, 6),
     available_at: Faker::Date.between(1.week.ago, 3.weeks.from_now)
   }.merge(val))
 end
 
-
-# CHANGE THESE TO BE REAL ADDRESSES OR THE PINS WILL ALL BE IN THE SAME SPOT
-
 # to buy
-3.times do
-  Listing.create({
-  price: (Faker::Number.number(3).to_i * 1000),
-  category: "buy",
-  street_1: Faker::Address.street_address,
-  city: "San Francisco",
-  state: "CA",
-  zip_code: "94103",
-  description: "Hidden Gem",
-  poster_id: 1,
-  available_at: Faker::Date.between(1.week.ago, 3.weeks.from_now)
-})
+BUY_ADDRESSES.each do |key, val|
+  listing = Listing.create({
+    price: (Faker::Number.number(3).to_i * 1000),
+    category: "buy",
+    poster_id: Faker::Number.between(1, 6),
+    available_at: Faker::Date.between(1.week.ago, 3.weeks.from_now)
+  }.merge(val))
 end
