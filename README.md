@@ -9,15 +9,18 @@ Diggable is a clone of Zillow built on Rails and Backbone. Users can:
 
 - [x] Create accounts
 - [x] Create sessions (log in)
-- [ ] View a list of listings for homes to buy/rent
+- [x] Log in as a guest with the click of a button
+- [x] View a list of listings for homes to buy/rent
+- [x] See search results on a map
+- [x] See some listing info by hovering over the related pin
+- [x] See some listing info by hovering over the related listing in the sidebar
 - [ ] Search for listings by location (address/zip/city)
-- [ ] See search results on a map
-- [ ] Create listings for homes to sell/rent
+- [ ] Narrow search results for listings by price
+- [ ] Narrow search results for listings by type
 - [ ] Save/star listings to view later
 - [ ] View saved/starred listings
 - [ ] Hide listings from search results
-- [ ] Narrow search results for listings by price
-- [ ] Narrow search results for listings by type
+- [ ] Create listings for homes to sell/rent
 
 ## Design Docs
 * [View Wireframes][views]
