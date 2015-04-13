@@ -11,15 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150408223803) do
+ActiveRecord::Schema.define(version: 20150413162843) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "listings", force: :cascade do |t|
     t.integer  "price",        null: false
-    t.string   "latitude"
-    t.string   "longitude"
     t.string   "category"
     t.string   "street_1",     null: false
     t.string   "street_2"
@@ -31,12 +29,12 @@ ActiveRecord::Schema.define(version: 20150408223803) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.integer  "poster_id",    null: false
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   add_index "listings", ["available_at"], name: "index_listings_on_available_at", using: :btree
   add_index "listings", ["category"], name: "index_listings_on_category", using: :btree
-  add_index "listings", ["latitude"], name: "index_listings_on_latitude", using: :btree
-  add_index "listings", ["longitude"], name: "index_listings_on_longitude", using: :btree
   add_index "listings", ["price"], name: "index_listings_on_price", using: :btree
 
   create_table "users", force: :cascade do |t|

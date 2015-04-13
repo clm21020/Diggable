@@ -25,6 +25,9 @@ class Listing < ActiveRecord::Base
 
   belongs_to :poster, class_name: "User"
 
+  geocoded_by :address
+  after_initialize :geocode
+
   def self.search_results(options={})
     results = Listing.all
 
@@ -39,5 +42,10 @@ class Listing < ActiveRecord::Base
     # price should take a range
 
     results
+  end
+
+  def address
+    street = self.street_2 ? "#{self.street_1}, #{self.street_2}" : self.street_1
+    "#{street}, #{self.city}, #{self.state} #{self.zip_code}"
   end
 end
