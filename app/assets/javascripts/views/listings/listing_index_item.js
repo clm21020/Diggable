@@ -1,6 +1,12 @@
 Diggable.Views.ListingIndexItem = Backbone.View.extend({
-  initialize: function(){
+  initialize: function(options){
+    this.mapView = options.mapView;
     this.listenTo(this.model, 'sync', this.render);
+  },
+
+  events: {
+    "mouseenter": "displayInfo",
+    "mouseleave": "hideInfo"
   },
 
   template: JST['listings/index_item'],
@@ -11,5 +17,14 @@ Diggable.Views.ListingIndexItem = Backbone.View.extend({
     var content = this.template({ listing: this.model });
     this.$el.html(content);
     return this;
+  },
+
+  displayInfo: function(event) {
+    var marker = this.mapView._markers[this.model.id];
+    this.mapView.showMarkerInfo(event, marker);
+  },
+
+  hideInfo: function() {
+    this.mapView.hideMarkerInfo();
   }
 });

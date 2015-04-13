@@ -15,7 +15,10 @@ Diggable.Views.SearchShow = Backbone.CompositeView.extend({
   },
 
   addListingsIndexView: function() {
-    var subview = new Diggable.Views.ListingsIndex({collection: this.collection});
+    var subview = new Diggable.Views.ListingsIndex({
+      collection: this.collection,
+      mapView: this._subviews['.map'][0]
+    });
     this.addSubview('.listings', subview);
   },
 
