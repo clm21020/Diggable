@@ -25,5 +25,33 @@
 
   <hr class="form">
 
-  <button type="button" class="btn btn-primary btn-block">Sign in as a Guest</button>
+  <button type="button" class="btn btn-primary btn-block guest">Sign in as a Guest</button>
 </div>
+
+
+<script>
+  var typeUsername = function(){
+    $("input:text").typed({
+      strings: ["guest"],
+      typeSpeed: 10,
+      callback: typePassword
+    });
+  };
+
+  var typePassword = function(){
+    $("input:password").typed({
+      strings: ["password^200"],
+      typeSpeed: 10,
+      callback: signIn
+    });
+  };
+
+  var signIn = function(){
+    $('form').attr("action", "/session");
+    $('form').submit();
+  };
+
+  $(function(){
+    $(".guest").bind("click", typeUsername)
+  });
+</script>
