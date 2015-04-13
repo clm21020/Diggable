@@ -86,7 +86,6 @@ ADDRESSES = {
 # Intel (santa clara)
 
 # to rent
-
 ADDRESSES.each do |key, val|
   listing = Listing.create({
     price: (Faker::Number.number(1).to_i * 100),
@@ -95,9 +94,10 @@ ADDRESSES.each do |key, val|
     poster_id: Faker::Number.between(1, 6),
     available_at: Faker::Date.between(1.week.ago, 3.weeks.from_now)
   }.merge(val))
-  # generate lat/long ? maybe do that in after_initialize in model
 end
 
+
+# CHANGE THESE TO BE REAL ADDRESSES OR THE PINS WILL ALL BE IN THE SAME SPOT
 
 # to buy
 3.times do
