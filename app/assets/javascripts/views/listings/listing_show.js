@@ -1,6 +1,12 @@
 Diggable.Views.ListingShow = Backbone.View.extend({
   initialize: function(){
-    this.listen_to(this.model, "sync", this.render);
+    this.listenTo(this.model, "sync", this.render);
+  },
+
+  className: "listing-details",
+
+  events: {
+    "click .hide-details": "hide",
   },
 
   template: JST["listings/show"],
@@ -11,5 +17,13 @@ Diggable.Views.ListingShow = Backbone.View.extend({
     });
     this.$el.html(content);
     return this;
+  },
+
+  hide: function(){
+    this.$el.addClass("out-of-sight");
+  },
+
+  show: function(){
+    this.$el.removeClass("out-of-sight");
   }
 });

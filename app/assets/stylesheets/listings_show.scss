@@ -1,0 +1,52 @@
+// lots of selectors to overwrite application.scss .content > div { width: 100% }
+.content div.listing-details {
+  box-shadow: 0px 0px 5px #333333;
+  width: 350px;
+  height: 100%;
+  background: white;
+  overflow: scroll;
+  position: absolute;
+  left: calc(100% - 700px);
+  padding: 15px;
+  transition: left 0.5s ease;
+}
+
+.content div.listing-details.out-of-sight{
+  left: 100%;
+}
+
+.listing-details > .hide-details {
+  border: 1px solid gray;
+  width: 60px;
+  padding: 5px;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.listing-details > .hide-details:hover {
+  background-color: #F5F5F5;
+}
+
+.listing-details > .street {
+  font-size: 36px;
+  font-weight: 300;
+}
+
+.listing-details > .city-state-zip {
+  font-size: 28px;
+  font-weight: 300;
+}
+
+.listing-details > .listing-type {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.listing-details > .price {
+  font-size: 28px;
+  font-weight: 350;
+}
+
+.listing-details > .description {
+  font-size: 15px;
+}
