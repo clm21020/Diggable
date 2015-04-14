@@ -32,30 +32,19 @@ Diggable.Views.Map = Backbone.View.extend({
     google.maps.event.addListener(this._markers[listing.id], "mouseover", function(event, marker){
       this.showMarkerInfo(event, this._markers[listing.id]);
     }.bind(this));
-
-    google.maps.event.addListener(this._markers[listing.id], "mouseout", function(){
-      this.hideMarkerInfo(event, this._markers[listing.id]);
-    }.bind(this));
   },
 
   infoWindowTemplate: JST["map/infoWindow"],
 
   showMarkerInfo: function(event, marker) {
+    if (this._infoWindow) { this._infoWindow.close(); }
+
     var content = this.infoWindowTemplate({
       listing: this.collection.get(marker.title)
     });
 
-    this._infoWindow = new google.maps.InfoWindow({
-      content: content
-    });
-
+    this._infoWindow = new google.maps.InfoWindow({ content: content });
     this._infoWindow.open(this._map, marker);
-  },
-
-  hideMarkerInfo: function() {
-    if (this._infoWindow) {
-      this._infoWindow.close();
-    }
   },
 
   removeMarker: function(listing) {

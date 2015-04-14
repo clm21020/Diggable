@@ -14,6 +14,7 @@ Diggable is a clone of Zillow built on Rails and Backbone. Users can:
 - [x] See search results on a map
 - [x] See some listing info by hovering over the related pin
 - [x] See some listing info by hovering over the related listing in the sidebar
+- [ ] See detailed pages for individual listings
 - [ ] Search for listings by location (address/zip/city)
 - [ ] Narrow search results for listings by price
 - [ ] Narrow search results for listings by type
