@@ -20,14 +20,13 @@
 }
 
 .listing-index-item > .address {
-  font-weight: bold;
-  color: blue;
+  font-weight: 500;
+  color: DodgerBlue;
 }
 
 
-.listing-index-item > .address:hover {
-  color: DeepSkyBlue;
-  text-decoration: none;
+.listing-index-item:hover {
+  background-color: #F5F5F5;
 }
 
 .listing-index-item > .price {
