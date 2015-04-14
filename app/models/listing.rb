@@ -4,7 +4,7 @@
 #
 #  id           :integer          not null, primary key
 #  price        :integer          not null
-#  category     :string
+#  listing_type :string
 #  street_1     :string           not null
 #  street_2     :string
 #  city         :string           not null
@@ -20,7 +20,7 @@
 #
 
 class Listing < ActiveRecord::Base
-  validates :price, :category, :street_1, :city, :state, :zip_code, :description,
+  validates :price, :listing_type, :street_1, :city, :state, :zip_code, :description,
               :available_at, :poster_id, presence: true
 
   belongs_to :poster, class_name: "User"
@@ -42,7 +42,7 @@ class Listing < ActiveRecord::Base
 
     # for each option, filter with an ugly where condition (decompose)
     #   filter by range, and sort inclusive/exclusive
-    # category & price--will need to be considered together
+    # listing_type & price--will need to be considered together
     #   buy: filter by price if mortgage is specified (buy only)
     #        filter by price * % if 'approximate monthly mortgage' is specified (buy&rent)
     #   rent: filter by price (rent only OR buy&rent)

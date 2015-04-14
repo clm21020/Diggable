@@ -22,7 +22,7 @@ module Api
 
     private
     def listing_params
-      params.require(:listing).permit(:price, :category, :street_1, :street_2, :city, :state, :zip_code, :description, :available_at)
+      params.require(:listing).permit(:price, :listing_type, :street_1, :street_2, :city, :state, :zip_code, :description, :available_at)
       # get latitude and longitude from Google Maps/geocoder
     end
   end

@@ -11,14 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150413162843) do
+ActiveRecord::Schema.define(version: 20150414172539) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "listings", force: :cascade do |t|
     t.integer  "price",        null: false
-    t.string   "category"
+    t.string   "listing_type"
     t.string   "street_1",     null: false
     t.string   "street_2"
     t.string   "city",         null: false
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 20150413162843) do
   end
 
   add_index "listings", ["available_at"], name: "index_listings_on_available_at", using: :btree
-  add_index "listings", ["category"], name: "index_listings_on_category", using: :btree
+  add_index "listings", ["listing_type"], name: "index_listings_on_listing_type", using: :btree
   add_index "listings", ["price"], name: "index_listings_on_price", using: :btree
 
   create_table "users", force: :cascade do |t|

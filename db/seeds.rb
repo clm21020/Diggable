@@ -119,7 +119,7 @@ BUY_ADDRESSES = {
 RENT_ADDRESSES.each do |key, val|
   listing = Listing.create({
     price: (Faker::Number.number(1).to_i * 100),
-    category: "rent",
+    listing_type: "rent",
     poster_id: Faker::Number.between(1, 6),
     available_at: Faker::Date.between(1.week.ago, 3.weeks.from_now)
   }.merge(val))
@@ -129,7 +129,7 @@ end
 BUY_ADDRESSES.each do |key, val|
   listing = Listing.create({
     price: (Faker::Number.number(3).to_i * 1000),
-    category: "buy",
+    listing_type: "buy",
     poster_id: Faker::Number.between(1, 6),
     available_at: Faker::Date.between(1.week.ago, 3.weeks.from_now)
   }.merge(val))

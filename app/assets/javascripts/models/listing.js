@@ -1,22 +1,27 @@
 Diggable.Models.Listing = Backbone.Model.extend({
   urlRoot: "/api/listings",
 
-  prettyAddress: function(){
-    var address = this.escape('street_1');
-    if ( this.get('street_2') !== null ) {
-      address += ' ' + this.escape('street_2');
+  fullStreet: function() {
+    if ( this.get('street_2') === null ){
+      return this.escape('street_1');
+    } else {
+      return this.escape('street_1') + ' ' + this.escape('street_2');
     }
-    address += ', ' + this.escape('city');
-    address += ', ' + this.escape('state');
-    address += ' ' + this.escape('zip_code');
-    return address;
   },
 
-  shortAddress: function(len){
+  cityStateZip: function() {
+    return this.escape('city') + ', ' + this.escape('state') + ' ' + this.escape('zip_code');
+  },
+
+  prettyAddress: function() {
+    return this.fullStreet() + ', ' + this.cityStateZip();
+  },
+
+  shortAddress: function(len) {
     return this.prettyAddress().substr(0, len);
   },
 
-  commaPrice: function(price){
+  commaPrice: function(price) {
     var digits = price.split('');
 
     var nextComma = -3;
@@ -28,9 +33,9 @@ Diggable.Models.Listing = Backbone.Model.extend({
     return digits.join('');
   },
 
-  prettyPrice: function(){
+  prettyPrice: function() {
     var price = "$" + this.commaPrice(this.escape('price'));
-    if ( this.get('category') === "rent" ) {
+    if ( this.get('listing_type') === "rent" ) {
       price += "/mo";
     }
     return price;
