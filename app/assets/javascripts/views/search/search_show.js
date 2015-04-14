@@ -7,7 +7,7 @@ Diggable.Views.SearchShow = Backbone.CompositeView.extend({
 
   template: JST['search/show'],
 
-  render: function(){
+  render: function() {
     var content = this.template();
     this.$el.html(content);
     this.attachSubviews();
@@ -25,5 +25,5 @@ Diggable.Views.SearchShow = Backbone.CompositeView.extend({
   addMapView: function() {
     var subview = new Diggable.Views.Map({collection: this.collection});
     this.addSubview('.map', subview);
-  }
+  },
 });

@@ -1,5 +1,6 @@
 Diggable.Views.ListingsIndex = Backbone.CompositeView.extend({
   initialize: function(options) {
+    this.showView = new Diggable.Views.ListingShow();
     this.mapView = options.mapView;
     this.collection.each(this.addListingIndexItemView);
     this.listenTo(this.collection, 'sync', this.render);
@@ -19,7 +20,8 @@ Diggable.Views.ListingsIndex = Backbone.CompositeView.extend({
   addListingIndexItemView: function(listing) {
     var subview = new Diggable.Views.ListingIndexItem({
       model: listing,
-      mapView: this.mapView
+      mapView: this.mapView,
+      showView: this.showView
     });
     this.addSubview('.listing-index-items', subview);
   },
