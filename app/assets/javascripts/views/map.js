@@ -1,5 +1,7 @@
 Diggable.Views.Map = Backbone.View.extend({
-  initialize: function(){
+  initialize: function(options){
+    this.listingShowView = options.listingShowView;
+
     var mapOptions = {
       center: { lat: 37.7833, lng: -122.4167 },
       zoom: 14
@@ -32,6 +34,10 @@ Diggable.Views.Map = Backbone.View.extend({
     google.maps.event.addListener(this._markers[listing.id], "mouseover", function(event, marker){
       this.showMarkerInfo(event, this._markers[listing.id]);
     }.bind(this));
+
+    google.maps.event.addListener(this._markers[listing.id], "click", function(event, marker){
+      this.showListingInfo(event, this._markers[listing.id]);
+    }.bind(this));
   },
 
   infoWindowTemplate: JST["map/infoWindow"],
@@ -45,6 +51,16 @@ Diggable.Views.Map = Backbone.View.extend({
 
     this._infoWindow = new google.maps.InfoWindow({ content: content });
     this._infoWindow.open(this._map, marker);
+  },
+
+  showListingInfo: function(event, marker) {
+    var listing = this.collection.get(marker.title);
+
+    if (this.listingShowView.model !== listing) {
+      this.listingShowView.model = listing;
+      this.listingShowView.render();
+    }
+    this.listingShowView.show();
   },
 
   removeMarker: function(listing) {
