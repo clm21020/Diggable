@@ -27,10 +27,11 @@ Diggable.Views.ListingsIndex = Backbone.CompositeView.extend({
   },
 
   removeListingIndexItemView: function(listing) {
-    _(this.subviews('.listing-index-items')).each(function (subview) {
-      if (subview.model === listing) {
-        this.removeSubview(subview);
-      }
-    }.bind(this));
+    var subviews = this.subviews('.listing-index-items');
+    var i = _(subviews).findIndex(function (el) {
+      return el.model === listing;
+    });
+    subviews[i].remove();
+    subviews.splice(i, 1);
   }
 });
