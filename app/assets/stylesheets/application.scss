@@ -24,10 +24,23 @@ html, body, .content > div {
 }
 
 .content {
-  // adjust to compensate for the navbar's height
+  // adjust to compensate for the search bar's height
   height: calc(100% - 40px);
 }
 
-.nav {
-  background: white;
+.search-bar {
+  height: 40px;
+  width: 100%
+}
+
+.sign-out {
+  position: absolute;
+  right: 0px;
+  height: 40px;
+  width: 80px;
+}
+
+.sign-out > input[type="submit"] {
+  height: 100%;
+  width: 100%;
 }
