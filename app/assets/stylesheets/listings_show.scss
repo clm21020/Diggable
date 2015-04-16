@@ -4,7 +4,7 @@
   box-shadow: 0px 0px 5px #333333;
   width: 350px;
   height: 100%;
-  background: white;
+  background: rgba(255, 255, 255, 0.95);
   overflow: scroll;
   position: absolute;
   left: calc(100% - 700px);
@@ -13,7 +13,7 @@
 }
 
 .content div.listing-details.out-of-sight{
-  left: 100%;
+  left: calc(100% - 350px);
 }
 
 .listing-details > .hide-details {
