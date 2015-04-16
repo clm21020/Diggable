@@ -4,6 +4,8 @@ Diggable.Views.SearchShow = Backbone.CompositeView.extend({
     this.listingShowView = new Diggable.Views.ListingShow();
     this.addMapView();
     this.addListingsIndexView();
+    this.addSearchBarView();
+    // this.filterConditions = {};
   },
 
   template: JST['search/show'],
@@ -31,4 +33,12 @@ Diggable.Views.SearchShow = Backbone.CompositeView.extend({
     });
     this.addSubview('.map', subview);
   },
+
+  addSearchBarView: function() {
+    var subview = new Diggable.Views.SearchBar({
+      collection: this.collection,
+      mapView: this._subviews['.map'][0]
+    });
+    this.addSubview('.search-bar', subview);
+  }
 });

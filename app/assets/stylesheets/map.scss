@@ -3,6 +3,9 @@
   width: calc(100% - 350px);
   height: 100%;
   float: left;
+  position: absolute;
+  left: 0px;
+  top: 40px;
 }
 
 #map-canvas {

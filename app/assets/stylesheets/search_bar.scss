@@ -1,0 +1,13 @@
+.search-bar {
+  height: 40px;
+  width: 100%
+}
+
+.search-bar * {
+  height: 100%;
+  float: left;
+}
+
+.search-bar input:first-of-type {
+  padding-left: 5px;
+}
