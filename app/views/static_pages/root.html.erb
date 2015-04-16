@@ -4,3 +4,9 @@
   <p>Please check back soon.</p>
   <%= button_to "Sign Out", session_url, method: :delete %>
 </div>
+
+<script>
+  $(document).ready(function(){
+    Diggable.initialize();
+  });
+</script>

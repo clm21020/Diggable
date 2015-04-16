@@ -11,7 +11,3 @@ window.Diggable = {
     Backbone.history.start();
   }
 };
-
-$(document).ready(function(){
-  Diggable.initialize();
-});
