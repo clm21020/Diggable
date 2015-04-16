@@ -1,43 +1,27 @@
 Diggable.Views.Map = Backbone.View.extend({
   initialize: function(options){
     this.listingShowView = options.listingShowView;
-    this._markers = {};
 
     var mapOptions = {
       center: { lat: 37.7833, lng: -122.4167 },
       zoom: 14
     };
 
+    this._markers = {};
+
     this._map = new google.maps.Map(this.el, mapOptions);
     this.collection.each(this.addMarker);
 
     this.listenTo(this.collection, 'add', this.addMarker);
     this.listenTo(this.collection, 'remove', this.removeMarker);
-
-    google.maps.event.addListener(this._map, 'idle', this.search.bind(this));
   },
 
   attributes: {
     id: 'map-canvas'
   },
 
-  search: function(){
-    var mapBounds = this._map.getBounds();
-    var ne = mapBounds.getNorthEast();
-    var sw = mapBounds.getSouthWest();
-
-    var filterData = {
-      location: {
-        lat_min: sw.lat(),
-        lat_max: ne.lat(),
-        lng_min: sw.lng(),
-        lng_max: ne.lng(),
-      }
-    };
-
-    this.collection.fetch({
-      data: filterData
-    });
+  render: function() {
+    return this;
   },
 
   addMarker: function(listing) {
@@ -80,7 +64,11 @@ Diggable.Views.Map = Backbone.View.extend({
   },
 
   removeMarker: function(listing) {
-    this._markers[listing.id].setMap(null);
-    this._markers[listing.id] = null;
+    // remove the listeners from the marker
+    // google.maps.event.clearInstanceListeners(this._markers[listing.id]);
+    // remove the marker from the map
+    // this._markers[listing.id].setMap(null);
+    // delete the marker
+    // this._markers[listing.id] = null;
   }
 });
