@@ -64,7 +64,7 @@ class Listing < ActiveRecord::Base
   end
 
   def address
-    sleep(0.2)
+    sleep(0.2) #this is to avoid exceeding the Google Maps API request limit while seeding the database
     street = self.street_2 ? "#{self.street_1}, #{self.street_2}" : self.street_1
     "#{street}, #{self.city}, #{self.state} #{self.zip_code}"
   end

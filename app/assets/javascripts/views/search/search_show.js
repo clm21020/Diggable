@@ -9,7 +9,9 @@ Diggable.Views.SearchShow = Backbone.CompositeView.extend({
   template: JST['search/show'],
 
   render: function() {
-    var content = this.template();
+    var content = this.template({
+      csrfToken: $('meta[name=csrf-token]').attr('content')
+    });
     this.$el.html(content);
     this.attachSubviews();
     return this;
