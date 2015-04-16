@@ -1,6 +1,7 @@
 Diggable.Views.Map = Backbone.View.extend({
   initialize: function(options){
     this.listingShowView = options.listingShowView;
+    this.filterConditions = options.filterConditions;
     this._markers = {};
 
     var mapOptions = {
@@ -26,17 +27,15 @@ Diggable.Views.Map = Backbone.View.extend({
     var ne = mapBounds.getNorthEast();
     var sw = mapBounds.getSouthWest();
 
-    var filterData = {
-      location: {
-        lat_min: sw.lat(),
-        lat_max: ne.lat(),
-        lng_min: sw.lng(),
-        lng_max: ne.lng(),
-      }
+    this.filterConditions.location = {
+      lat_min: sw.lat(),
+      lat_max: ne.lat(),
+      lng_min: sw.lng(),
+      lng_max: ne.lng(),
     };
 
     this.collection.fetch({
-      data: filterData
+      data: this.filterConditions
     });
   },
 

@@ -1,6 +1,7 @@
 Diggable.Views.SearchBar = Backbone.View.extend({
   initialize: function(options) {
     this.mapView = options.mapView;
+    this.filterConditions = options.filterConditions;
     this.geocoder = new google.maps.Geocoder();
   },
 
