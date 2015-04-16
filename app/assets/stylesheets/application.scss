@@ -24,11 +24,10 @@ html, body, .content > div {
 }
 
 .content {
-  // adjust to compensate for the search bar's height
+  // adjust to compensate for the navbar's height
   height: calc(100% - 40px);
 }
 
-div.search-bar {
-  width: 100%;
-  height: 40px;
+.nav {
+  background: white;
 }
