@@ -76,7 +76,6 @@ Diggable.Views.SearchBar = Backbone.View.extend({
   updatePriceFilter: function() {
     var minPrice = parseInt($('.min-price').val());
     var maxPrice = parseInt($('.max-price').val());
-    // BONUS: Validate that numbers are within PostgreSQL's acceptable range
 
     var priceBounds = this.filterConditions.price || {};
 
@@ -97,8 +96,26 @@ Diggable.Views.SearchBar = Backbone.View.extend({
     }
 
     this.filterConditions.price = priceBounds;
+    this.updateCurrentPriceRange();
     this.collection.fetch({
       data: this.filterConditions
     });
+  },
+
+  updateCurrentPriceRange: function() {
+    var minPresent = (this.filterConditions.price.min_price !== undefined);
+    var maxPresent = (this.filterConditions.price.max_price !== undefined);
+    var newVal = 'Any Price';
+
+    if (minPresent && maxPresent) {
+      newVal = '$' + this.filterConditions.price.min_price;
+      newVal += ' - $' + this.filterConditions.price.max_price;
+    } else if (minPresent && !maxPresent) {
+      newVal = '$' + this.filterConditions.price.min_price + "+";
+    } else if (maxPresent && !minPresent) {
+      newVal = '$0 - $' + this.filterConditions.price.max_price;
+    }
+
+    $('.current-price-range').html(newVal);
   }
 });
