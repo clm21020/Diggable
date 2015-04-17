@@ -34,7 +34,6 @@ Diggable.Views.Map = Backbone.View.extend({
       lng_max: ne.lng(),
     };
 
-    console.log('yet another fetch');
     this.collection.fetch({
       data: this.filterConditions
     });
