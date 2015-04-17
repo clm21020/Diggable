@@ -44,15 +44,13 @@ class Listing < ActiveRecord::Base
       results = filter_by_location(options[:location], results)
     end
 
-    # for each option, filter with an ugly where condition (decompose)
-    #   filter by range, and sort inclusive/exclusive
-    # listing_type & price--will need to be considered together
-    #   buy: filter by price if mortgage is specified (buy only)
-    #        filter by price * % if 'approximate monthly mortgage' is specified (buy&rent)
-    #   rent: filter by price (rent only OR buy&rent)
-    # available_at should take a range
-    # price should take a range
+    if options[:price]
+      results = filter_by_price(options[:price], results)
+    end
 
+    # for each option, filter with a where condition (decompose)
+    #   filter by range, and sort inclusive/exclusive
+    # available_at should take a range
     results
   end
 
@@ -60,6 +58,23 @@ class Listing < ActiveRecord::Base
     # potential bonus feature: allow latitude and longitude to wrap
     ar = ar_relation.where(latitude: (filters[:lat_min]..filters[:lat_max]))
     ar.where(longitude: (filters[:lng_min]..filters[:lng_max]))
+  end
+
+  # doesn't currently take into account rent vs sale
+  # BONUS FEATURE: 
+  # listing_type & price--will need to be considered together
+  #   buy: filter by price if mortgage is specified (buy only)
+  #        filter by price * % if 'approximate monthly mortgage' is specified (buy&rent)
+  #   rent: filter by price (rent only OR buy&rent)
+  def self.filter_by_price(filters, ar_relation)
+    ar = ar_relation
+    if filters[:min_price]
+      ar = ar.where("price >= ?", filters[:min_price])
+    end
+    if filters[:max_price]
+      ar = ar.where("price <= ?", filters[:max_price])
+    end
+    ar
   end
 
   def address

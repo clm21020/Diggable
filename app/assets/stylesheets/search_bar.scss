@@ -1,13 +1,47 @@
 .search-bar {
   height: 40px;
-  width: 100%
+  width: 100%;
 }
 
-.search-bar * {
-  height: 100%;
+.search-bar form.location, .search-bar div.price-container {
+  float: left;
+  margin-left: 10px;
+}
+
+.search-bar input{
   float: left;
 }
 
-.search-bar input:first-of-type {
+.search-bar input, .current-price-range{
   padding-left: 5px;
+  height: 40px;
+}
+
+.search-bar form.price {
+  position: absolute;
+  top: 40px;
+  z-index: 5;
+  background-color: white;
+  margin-top: 0px;
+  padding: 10px;
+  width: 240px;
+}
+
+.search-bar form.price > input {
+  width: 92px;
+  text-align: center;
+  height: 32px;
+  padding: 2px;
+}
+
+.search-bar form.price > div.dash {
+  float: left;
+  padding: 8px;
+  font-weight: bold;
+  font-color: gray;
+  font-size: 14px;
+}
+
+.search-bar form.price.out-of-sight {
+  display: none;
 }
