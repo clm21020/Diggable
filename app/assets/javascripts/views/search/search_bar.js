@@ -23,7 +23,6 @@ Diggable.Views.SearchBar = Backbone.View.extend({
 
   stopPropagation: function(event){
     event.stopPropagation();
-    console.log('propagation stopped');
   },
 
   locationSearch: function(event) {
