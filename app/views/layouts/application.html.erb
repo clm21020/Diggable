@@ -7,6 +7,9 @@
   <script type="text/javascript"
         src="https://maps.googleapis.com/maps/api/js"></script>
   <%= csrf_meta_tags %>
+  <%= favicon_link_tag %>
+  <link rel="shortcut icon" href="/images/favicon.png" type="image/png">
+  <link rel="icon" href="/images/favicon.png" type="image/png">
 </head>
 <body>
   <% if flash[:errors] %>
