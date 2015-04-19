@@ -1,12 +1,15 @@
 <%= button_to "Sign Out", session_url, method: :delete, form_class: "sign-out" %>
 
 <div class="content">
+  <!-- <img class="logo" src="<%= image_path "logo.jpg" %>" alt="Diggable logo"/> -->
   <p>Hi there! </p>
   <p>We're still digging for the perfect way to display this content. </p>
   <p>Please check back soon.</p>
 </div>
 
 <script>
+  Diggable.logoUrl = "<%= image_path "logo.jpg" %>"
+
   $(document).ready(function(){
     Diggable.initialize();
   });

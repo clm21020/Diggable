@@ -1,11 +1,36 @@
+form.location > input[type="submit"], button.current-price-range {
+  background-color: #E8F4FF;
+  font-weight: bold;
+  border: none;
+  padding: 1px 10px;
+  font-size: 12px;
+}
+
+input.city-state-zip {
+  border: none;
+  padding: 1px 10px;
+}
+
 .search-bar {
   height: 40px;
-  width: 100%;
+  width: calc(100% - 40px);
+  left: 40px;
+  background-color: #E8F4FF;
+}
+
+.search-bar .logo {
+  position: relative;
+  z-index: 10;
+  height: 55px;
+}
+
+.search-bar div.logo-holder {
+  float: left;
 }
 
 .search-bar form.location, .search-bar div.price-container {
   float: left;
-  margin-left: 10px;
+  border-right: 2px solid white;
 }
 
 .search-bar input{
@@ -13,7 +38,6 @@
 }
 
 .search-bar input, .current-price-range{
-  padding-left: 5px;
   height: 40px;
 }
 
