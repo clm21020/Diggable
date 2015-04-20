@@ -17,6 +17,7 @@
 #  poster_id    :integer          not null
 #  latitude     :float
 #  longitude    :float
+#  main_picture :string
 #
 
 class Listing < ActiveRecord::Base
