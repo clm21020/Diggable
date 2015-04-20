@@ -1,7 +1,28 @@
-<div class="address">
-  <%= listing.prettyAddress() %>
+<div class="picture">
+  <img src="<%=listing.get("main_picture")%>" alt="doghouse" />
 </div>
 
-<div class="price">
-  <%= listing.prettyPrice() %>
+<div class="info">
+  <div class="address">
+    <%= listing.fullStreet() %>
+  </div>
+  <div class="address">
+    <%= listing.cityStateZip() %>
+  </div>
+
+  <div class="listing-type">
+    <strong>
+      <% if (listing.get("listing_type") === "rent") { %>
+        FOR RENT
+      <% } else { %>
+        FOR SALE
+      <% } %>
+    </strong>
+    on <%= listing.available() %>
+  </div>
+
+  <div class="price">
+    <%= listing.prettyPrice() %>
+  </div>
+
 </div>

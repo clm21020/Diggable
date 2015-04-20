@@ -1,6 +1,20 @@
 Diggable.Models.Listing = Backbone.Model.extend({
   urlRoot: "/api/listings",
 
+  available: function() {
+    var monthNames = [
+        "Jan", "Feb", "Mar", "Apr", "May", "June", "July",
+        "Aug", "Sep", "Oct", "Nov", "Dec"
+    ];
+
+    var uglyDate = this.get('available_at');
+    var year = uglyDate.slice(0, 4);
+    var month = parseInt(uglyDate.slice(5, 7));
+    var day = parseInt(uglyDate.slice(8, 10));
+
+    return monthNames[month - 1] + " " + day + ", " + year;
+  },
+
   fullStreet: function() {
     if ( this.get('street_2') === null ){
       return this.escape('street_1');

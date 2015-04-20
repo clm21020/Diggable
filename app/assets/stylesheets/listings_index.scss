@@ -17,23 +17,43 @@
   background-color: white;
 }
 
-.listing-index-items > div{
-  padding: 10px;
+div.listing-index-item {
+  position: relative;
+  padding: 10px 0px;
   border-bottom: 1px solid rgb(204, 204, 204);
   background-color: white;
 }
-
-.listing-index-item > .address {
-  font-weight: 500;
-  color: DodgerBlue;
-}
-
 
 .listing-index-item:hover {
   background-color: #F5F5F5;
   cursor: pointer;
 }
 
-.listing-index-item > .price {
+.listing-index-item > div {
+  float: left;
+}
+
+// clearfix
+.listing-index-item:after {
+   content: "";
+   display: block;
+   clear: both;
+}
+
+.listing-index-item > .picture > img {
+  width: 120px;
+}
+
+.listing-index-item > .info {
+  padding: 0px 10px;
+  width: 210px;
+}
+
+.listing-index-item .address {
+  font-weight: 500;
+  color: DodgerBlue;
+}
+
+.listing-index-item .price {
   font-size: 24px;
 }
