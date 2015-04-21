@@ -4,12 +4,11 @@
   box-shadow: 0px 0px 5px #333333;
   width: 350px;
   height: calc(100% - 40px);
-  background: rgba(255, 255, 255, 0.95);
   overflow: scroll;
   position: absolute;
   left: calc(100% - 700px);
-  padding: 15px;
   transition: left 0.5s ease;
+  background-color: #FAFDFF;
 }
 
 .content div.listing-details.out-of-sight{
@@ -17,39 +16,64 @@
   box-shadow: none;
 }
 
-.listing-details > .hide-details {
-  border: 1px solid gray;
-  width: 60px;
-  padding: 5px;
-  text-align: center;
-  border-radius: 5px;
+.details-nav {
+  height: 40px;
+  width: 100%;
+  background-color: white;
 }
 
-.listing-details > .hide-details:hover {
-  background-color: #F5F5F5;
+.listing-details > hr {
+  margin: 5px 0px;
+}
+
+.listing-details .hide-details {
+  height: 100%;
+  float: left;
+  border-right: 1px solid rgb(204, 204, 204);
+  padding: 10px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.listing-details .hide-details:hover {
   cursor: pointer;
 }
 
-.listing-details > .street {
+.listing-details > img {
+  margin: 0px;
+  width: 100%;
+  padding: 5px;
+  border-bottom: 1px solid rgb(204, 204, 204);
+  border-top: 1px solid rgb(204, 204, 204);
+  background-color: #E8F4FF;
+}
+
+.listing-details > .info{
+  background-color: white;
+  border-bottom: 1px solid rgb(204, 204, 204);
+  padding: 0px 10px;
+}
+
+.listing-details .street {
   font-size: 36px;
   font-weight: 300;
 }
 
-.listing-details > .city-state-zip {
+.listing-details .city-state-zip {
   font-size: 28px;
   font-weight: 300;
 }
 
-.listing-details > .listing-type {
+.listing-details .listing-type {
   font-size: 15px;
   font-weight: bold;
 }
 
-.listing-details > .price {
+.listing-details .price {
   font-size: 28px;
   font-weight: 350;
 }
 
-.listing-details > .description {
+.listing-details .description {
   font-size: 15px;
 }
