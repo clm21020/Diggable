@@ -73,7 +73,7 @@ I will add the ability for users to see a more detailed page for each listing by
 I'll also allow users to create their own listings
 
 ### Bonus Features
-- [ ] Add pictures to listings
+- [x] Add pictures to listings
 - [ ] Narrow search results for listings by type
 - [ ] Save/star listings to view later
 - [ ] Add page to view starred listings
