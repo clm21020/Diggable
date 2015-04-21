@@ -8,6 +8,8 @@ Diggable.Views.ListingShow = Backbone.View.extend({
   render: function(){
     this.$el = $("div.listing-details");
     this.delegateEvents();
+    $('.search-bar').click(this.hide.bind(this));
+    $('.map').click(this.hide.bind(this));
     var content = this.template({
       listing: this.model
     });
