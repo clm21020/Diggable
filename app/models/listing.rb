@@ -48,10 +48,10 @@ class Listing < ActiveRecord::Base
   end
 
   def self.filter_by_listing_type(filter, ar_relation)
-    if filter == "buy" || filter == "rent"
-      ar_relation.where(listing_type: filter)
-    else
+    if filter == "both"
       ar_relation
+    else
+      ar_relation.where(listing_type: filter)
     end
   end
 
