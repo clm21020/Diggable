@@ -11,6 +11,7 @@ Diggable.Views.SearchBar = Backbone.View.extend({
     'keypress input.min-price': 'handleKeypress',
     'keypress input.max-price': 'handleKeypress',
     'click .price-container': 'stopPropagation',
+    'click .listing-type-container': 'stopPropagation',
     'click .listing-type-button': 'toggleListingTypeForm',
     'change input:checkbox': 'updateListingTypeFilter'
   },
@@ -131,10 +132,10 @@ Diggable.Views.SearchBar = Backbone.View.extend({
     listingTypeForm.toggleClass('out-of-sight');
 
     var priceForm = $('form.price');
-    if (!priceForm.hasClass('out-of-sight') && !listingTypeForm.hasClass('out-of-sight')) {
-      this.closePriceForm();
+    if (!listingTypeForm.hasClass('out-of-sight')) {
+      if (!priceForm.hasClass('out-of-sight')) { this.closePriceForm(); }
+      $('html').click(function(){listingTypeForm.addClass('out-of-sight'); });
     }
-
   },
 
   updateListingTypeFilter: function(event) {
