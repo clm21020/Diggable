@@ -29,17 +29,12 @@ class Listing < ActiveRecord::Base
   geocoded_by :address
   before_validation :geocode
 
-  # LIMIT API REQUESTS (if needed)
-  #  after_validation :geocode, if: ->(obj){ obj.address.present? and obj.address_changed? }
-  #
-  # def address_attributes
-  #   [:street_1, :street_2, :city, :state, :zip_code]
-  # end
-  #
-  # address_attributes.any? { |attr| self.send("#{attr}_present?") && self.send("#{attr}_changed?") }
-
   def self.search_results(options={})
     results = Listing.all
+
+    if options[:listing_type]
+      results = filter_by_listing_type(options[:listing_type], results)
+    end
 
     if options[:location]
       results = filter_by_location(options[:location], results)
@@ -49,24 +44,22 @@ class Listing < ActiveRecord::Base
       results = filter_by_price(options[:price], results)
     end
 
-    # for each option, filter with a where condition (decompose)
-    #   filter by range, and sort inclusive/exclusive
-    # available_at should take a range
     results
   end
 
+  def self.filter_by_listing_type(filter, ar_relation)
+    if filter == "buy" || filter == "rent"
+      ar_relation.where(listing_type: filter)
+    else
+      ar_relation
+    end
+  end
+
   def self.filter_by_location(filters, ar_relation)
-    # potential bonus feature: allow latitude and longitude to wrap
     ar = ar_relation.where(latitude: (filters[:lat_min]..filters[:lat_max]))
     ar.where(longitude: (filters[:lng_min]..filters[:lng_max]))
   end
 
-  # doesn't currently take into account rent vs sale
-  # BONUS FEATURE: 
-  # listing_type & price--will need to be considered together
-  #   buy: filter by price if mortgage is specified (buy only)
-  #        filter by price * % if 'approximate monthly mortgage' is specified (buy&rent)
-  #   rent: filter by price (rent only OR buy&rent)
   def self.filter_by_price(filters, ar_relation)
     ar = ar_relation
     if filters[:min_price]
