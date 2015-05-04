@@ -8,6 +8,7 @@ Diggable.Views.SearchBar = Backbone.View.extend({
   events: {
     'submit .location': 'locationSearch',
     'click .current-price-range': 'togglePriceForm',
+    'click .listing-type-button': 'toggleListingTypeForm',
     'keypress input.min-price': 'handleKeypress',
     'keypress input.max-price': 'handleKeypress',
     'click .price-container': 'stopPropagation'
@@ -117,5 +118,13 @@ Diggable.Views.SearchBar = Backbone.View.extend({
     }
 
     $('.current-price-range').html(newVal);
-  }
+  },
+
+  toggleListingTypeForm: function(event) {
+    event.stopPropagation();
+    var form = $('form.listing-type');
+
+    form.toggleClass('out-of-sight');
+  },
+
 });
