@@ -8,10 +8,11 @@ Diggable.Views.SearchBar = Backbone.View.extend({
   events: {
     'submit .location': 'locationSearch',
     'click .current-price-range': 'togglePriceForm',
-    'click .listing-type-button': 'toggleListingTypeForm',
     'keypress input.min-price': 'handleKeypress',
     'keypress input.max-price': 'handleKeypress',
-    'click .price-container': 'stopPropagation'
+    'click .price-container': 'stopPropagation',
+    'click .listing-type-button': 'toggleListingTypeForm',
+    'change input:checkbox': 'updateListingTypeFilter'
   },
 
   template: JST['search/search_bar'],
@@ -127,4 +128,22 @@ Diggable.Views.SearchBar = Backbone.View.extend({
     form.toggleClass('out-of-sight');
   },
 
+  updateListingTypeFilter: function(event) {
+    var rentChecked = $('.rent-checkbox').prop('checked');
+    var saleChecked = $('.sale-checkbox').prop('checked');
+
+    if (rentChecked && saleChecked) {
+      this.filterConditions.listing_type = "both";
+    } else if (rentChecked) {
+      this.filterConditions.listing_type = "rent";
+    } else if (saleChecked) {
+      this.filterConditions.listing_type = "buy";
+    } else {
+      this.filterConditions.listing_type = "none";
+    }
+
+    this.collection.fetch({
+      data: this.filterConditions
+    });
+  },
 });
