@@ -64,6 +64,10 @@ Diggable.Views.SearchBar = Backbone.View.extend({
       this.updatePriceFilter();
       $('html').off('click', this.closePriceForm.bind(this));
     } else {
+      var listingTypeForm = $('form.listing-type');
+      if (!listingTypeForm.hasClass('out-of-sight')) {
+        listingTypeForm.addClass('out-of-sight');
+      }
       this.delegateEvents();
       $('html').click(this.closePriceForm.bind(this));
       $('input.min-price').focus();
@@ -123,9 +127,14 @@ Diggable.Views.SearchBar = Backbone.View.extend({
 
   toggleListingTypeForm: function(event) {
     event.stopPropagation();
-    var form = $('form.listing-type');
+    var listingTypeForm = $('form.listing-type');
+    listingTypeForm.toggleClass('out-of-sight');
 
-    form.toggleClass('out-of-sight');
+    var priceForm = $('form.price');
+    if (!priceForm.hasClass('out-of-sight') && !listingTypeForm.hasClass('out-of-sight')) {
+      this.closePriceForm();
+    }
+
   },
 
   updateListingTypeFilter: function(event) {
