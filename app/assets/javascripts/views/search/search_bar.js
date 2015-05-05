@@ -7,7 +7,7 @@ Diggable.Views.SearchBar = Backbone.View.extend({
 
   events: {
     'submit .location': 'locationSearch',
-    'click .current-price-range': 'togglePriceForm',
+    'click .price-range-button': 'togglePriceForm',
     'keypress input.min-price': 'handleKeypress',
     'keypress input.max-price': 'handleKeypress',
     'click .price-container': 'stopPropagation',
@@ -65,19 +65,19 @@ Diggable.Views.SearchBar = Backbone.View.extend({
       this.updatePriceFilter();
       $('html').off('click', this.closePriceForm.bind(this));
     } else {
-      var listingTypeForm = $('form.listing-type');
-      if (!listingTypeForm.hasClass('out-of-sight')) {
-        listingTypeForm.addClass('out-of-sight');
-      }
+      $('form.listing-type').addClass('out-of-sight');
+      this.toggleArrow('.listing-type');
       this.delegateEvents();
       $('html').click(this.closePriceForm.bind(this));
       $('input.min-price').focus();
+      this.toggleArrow('.price');
     }
   },
 
   closePriceForm: function(event) {
     $('form.price').addClass('out-of-sight');
     this.updatePriceFilter();
+    this.toggleArrow('.price');
   },
 
   updatePriceFilter: function() {
@@ -134,7 +134,23 @@ Diggable.Views.SearchBar = Backbone.View.extend({
     var priceForm = $('form.price');
     if (!listingTypeForm.hasClass('out-of-sight')) {
       if (!priceForm.hasClass('out-of-sight')) { this.closePriceForm(); }
-      $('html').click(function(){listingTypeForm.addClass('out-of-sight'); });
+      $('html').click(function(){
+        listingTypeForm.addClass('out-of-sight');
+        this.toggleArrow('.listing-type');
+      }.bind(this));
+    }
+
+    this.toggleArrow('.listing-type');
+  },
+
+  toggleArrow: function(classSelector) {
+    var arrow = $(classSelector + '-arrow');
+    if ($('form' + classSelector).hasClass('out-of-sight')) {
+      arrow.removeClass('up-arrow');
+      arrow.addClass('down-arrow');
+    } else {
+      arrow.removeClass('down-arrow');
+      arrow.addClass('up-arrow');
     }
   },
 

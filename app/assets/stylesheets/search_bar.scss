@@ -1,4 +1,4 @@
-form.location > input[type="submit"], button.current-price-range, button.listing-type-button {
+form.location > input[type="submit"], button.price-range-button, button.listing-type-button {
   background-color: #E8F4FF;
   font-weight: bold;
   border: none;
@@ -40,7 +40,7 @@ input.city-state-zip {
   float: left;
 }
 
-.search-bar input:not([type="checkbox"]), .current-price-range, .listing-type-button{
+.search-bar input:not([type="checkbox"]), .price-range-button, .listing-type-button{
   height: 50px;
 }
 
@@ -85,4 +85,30 @@ input.city-state-zip {
 
 .search-bar form.out-of-sight{
   display: none;
+}
+
+.current-price-range {
+  display: inline-block;
+}
+
+.down-arrow {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  background: url("/images/down-arrow-black.png");
+}
+
+.down-arrow.blue {
+  background: url("/images/down-arrow-blue.png");
+}
+
+.up-arrow {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  background: url("/images/up-arrow-black.png");
+}
+
+.up-arrow.blue {
+  background: url("/images/up-arrow-blue.png");
 }
