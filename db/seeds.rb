@@ -334,7 +334,7 @@ MORE_BUY_ADDRESSES = {
 # to rent
 RENT_ADDRESSES.each do |key, val|
   listing = Listing.create({
-    price: (Faker::Number.number(1).to_i * 100),
+    price: ((Faker::Number.number(1).to_i + 5) * 100),
     listing_type: "rent",
     poster_id: Faker::Number.between(1, 6),
     available_at: Faker::Date.between(1.week.ago, 3.weeks.from_now),
@@ -355,7 +355,7 @@ end
 
 MORE_RENT_ADDRESSES.each do |key, val|
   listing = Listing.create({
-    price: (Faker::Number.number(1).to_i * 100),
+    price: ((Faker::Number.number(1).to_i + 5) * 100),
     listing_type: "rent",
     poster_id: Faker::Number.between(1, 6),
     available_at: Faker::Date.between(1.week.ago, 3.weeks.from_now),
