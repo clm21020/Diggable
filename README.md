@@ -2,7 +2,7 @@
 
 Diggable is a real estate and rental marketplace for dogs in the Silicon Valley.  
 [Click here][diggable] to see it live!  
-[diggable]: www.diggable.us
+[diggable]: http://diggable.herokuapp.com/
 
 ## User Guide
 
